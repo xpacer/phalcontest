@@ -1,0 +1,12 @@
+version: '3'
+services:
+  phalcontest:
+    build: docker
+    ports:
+      - 8900:80
+    volumes:
+      - ./:/var/www
+      - ./docker/vhost.conf:/etc/apache2/sites-available/000-default.conf
+      - ./docker/logs:/var/log
+    container_name: phalcontest
+    tty: true
